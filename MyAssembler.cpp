@@ -18,8 +18,8 @@ int main(int argc, char const *argv[]) {
     ifstream fIn;
     ofstream fOut;
 
-    queue<string> temp1;
-    queue<string> temp2;
+    queue<string> queue1;
+    queue<string> queue2;
 
     /* handling parameters*/
     if (argc < 2) {
@@ -64,14 +64,14 @@ int main(int argc, char const *argv[]) {
             /* remove spaces */
             string::iterator str_iter = remove(lineRmComm.begin(), lineRmComm.end(), ' ');
             lineRmComm.erase(str_iter, lineRmComm.end());
-            temp1.push(lineRmComm);  // push to queue
+            queue1.push(lineRmComm);  // push to queue
         }
 
         /* First pass read lables build symbol table*/
         cout << "First-pass" << endl;
-        while (!temp1.empty()) {
-            line = temp1.front();
-            temp1.pop();
+        while (!queue1.empty()) {
+            line = queue1.front();
+            queue1.pop();
             cout << line << endl;
             /* Is this line a L-instruction (Label) */
             if (line.find('(') != string::npos && line.find(')') != string::npos) {
@@ -83,14 +83,14 @@ int main(int argc, char const *argv[]) {
             } else {
                 MyST.incLabelCounter();
             }
-            temp2.push(line);
+            queue2.push(line);
         }
 
         /* Second pass Translate instructions */
         cout << "Second-pass" << endl;
-        while (!temp2.empty()) {
-            line = temp2.front();
-            temp2.pop();
+        while (!queue2.empty()) {
+            line = queue2.front();
+            queue2.pop();
             cout << line << endl;
             string macCode = MyParser.parseInst(line);
             cout << macCode << endl;
