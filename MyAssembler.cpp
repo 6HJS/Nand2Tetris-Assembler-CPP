@@ -1,4 +1,4 @@
-#include <algorithm>
+#include <algorithm>  // STL algorithms like sort, search, copy, remove element...
 #include <fstream>
 #include <iostream>
 #include <queue>
@@ -13,18 +13,15 @@ SymbolTable MyST;
 Parser MyParser;
 
 int main(int argc, char const *argv[]) {
-    string fnameIn;
-    string fnameOut;
+    string fnameIn, fnameOut;
     ifstream fIn;
     ofstream fOut;
 
-    queue<string> queue1;
-    queue<string> queue2;
+    queue<string> queue1, queue2;
 
     /* handling parameters*/
     if (argc < 2) {
-        throw runtime_error(
-            "main(): plseas specify input file MyAssembler *.asm [*.hack]");
+        throw runtime_error("main(): plseas specify input file MyAssembler *.asm [*.hack]");
     } else {
         fnameIn = string(argv[1]);
         // check the input file is a .asm?
@@ -81,7 +78,7 @@ int main(int argc, char const *argv[]) {
                 MyST.addLabel(line);
                 continue;
             } else {
-                MyST.incLabelCounter();
+                MyST.incLabelCounter();  // move the label counter to the next line (ROM Address)
             }
             queue2.push(line);
         }
