@@ -1,8 +1,8 @@
 #include <algorithm>  // STL algorithms like sort, search, copy, remove element...
-#include <fstream>
-#include <iostream>
-#include <queue>
-#include <string>
+#include <fstream>    // read write files
+#include <iostream>   // display debug information in terminal
+#include <queue>      //internal buffer between each pass
+#include <string>     //instruction are saved as C++ stings.
 
 #include "Parser.hpp"
 #include "SymbolTable.hpp"
@@ -49,7 +49,7 @@ int main(int argc, char const *argv[]) {
         cout << "output to " << fnameOut << endl;
 
         /* Pre pass: read source file clean-up the code */
-        cout << "Pre-pass" << endl;
+        cout << "\t======\tPre-pass\t=====\t" << endl;
         string line;
         /* read each line from the .asm file */
         while (getline(fIn, line)) {
@@ -65,7 +65,7 @@ int main(int argc, char const *argv[]) {
         }
 
         /* First pass read lables build symbol table*/
-        cout << "First-pass" << endl;
+        cout << "\t======\tFirst-pass\t======\t" << endl;
         while (!queue1.empty()) {
             line = queue1.front();
             queue1.pop();
@@ -84,13 +84,12 @@ int main(int argc, char const *argv[]) {
         }
 
         /* Second pass Translate instructions */
-        cout << "Second-pass" << endl;
+        cout << "\t======\tSecond-pass\t======\t" << endl;
         while (!queue2.empty()) {
             line = queue2.front();
             queue2.pop();
-            cout << line << endl;
-            string macCode = MyParser.parseInst(line);
-            cout << macCode << endl;
+            string macCode = MyParser.parseInst(line);  // translate into machine code
+            cout << line << "\t->\t" << macCode << endl;
             fOut << macCode << endl;
         }
         cout << "second pass finished" << endl;

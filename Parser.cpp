@@ -130,8 +130,7 @@ string Parser::parseAInst(string inst) {
     } else {
         // number in front of letter?
         if (inst.find_first_of("0123456789") < inst.find_first_not_of("0123456789")) {  // invalia!
-            throw runtime_error(
-                "Parser::parseAInst(): invalid A-inst: number first");
+            throw runtime_error("Parser::parseAInst(): invalid A-inst: number first");
         }
         uint16_t addr = MyST.lookupSymbol(inst);
         return prefixA + bitset<15>(addr).to_string();

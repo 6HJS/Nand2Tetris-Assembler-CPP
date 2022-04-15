@@ -14,12 +14,12 @@ class SymbolTable {
     int LabelCounter;
 
    public:
-    SymbolTable();
-    ~SymbolTable();
-    void addLabel(string Label);
-    void addVariable(string Var);
-    uint16_t lookupSymbol(string Var);
-    int incLabelCounter();
+    SymbolTable();                      // initialize symbol table, set start variabl counter
+    ~SymbolTable();                     // free up all used memory
+    int incLabelCounter();              // tracking the label address
+    void addLabel(string Label);        // add new label to the table
+    void addVariable(string Var);       // add new variabl to the table
+    uint16_t lookupSymbol(string Var);  // get memory address of a give symbol
 };
 
 #endif  // SYMBOLTABLE_HPP

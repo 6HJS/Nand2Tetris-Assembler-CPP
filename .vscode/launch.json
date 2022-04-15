@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}\\MyAssembler.exe",
             "args": [
-                "./ArrSort.asm"
+                ".\\Test_ASM\\ArrSort.asm"
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

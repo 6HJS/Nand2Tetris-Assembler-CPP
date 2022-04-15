@@ -16,7 +16,7 @@ extern SymbolTable MyST;  // global symbol table defined in main file
 under- lying components (fields and symbols).*/
 class Parser {
    private:
-    /* ASM to instruction dictionaries */
+    /* ASM to instruction dictionaries (Code module) */
     map<string, string> compDict;
     map<string, string> destDict;
     map<string, string> jumpDict;
