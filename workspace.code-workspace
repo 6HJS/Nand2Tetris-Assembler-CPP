@@ -22,7 +22,8 @@
 			"new": "cpp",
 			"concepts": "cpp",
 			"algorithm": "cpp",
-			"bitset": "cpp"
+			"bitset": "cpp",
+			"queue": "cpp"
 		}
 	}
 }

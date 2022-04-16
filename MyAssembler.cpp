@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
     ifstream fIn;
     ofstream fOut;
 
-    queue<string> queue1, queue2;
+    queue<string> queue1, queue2;  // tempory asm instruction storage
 
     /* handling parameters*/
     if (argc < 2) {

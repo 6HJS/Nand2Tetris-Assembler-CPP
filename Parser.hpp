@@ -13,7 +13,7 @@ using namespace std;
 extern SymbolTable MyST;  // global symbol table defined in main file
 
 /*The main function of the parser is to break each assembly command into its
-under- lying components (fields and symbols).*/
+underlying components (fields and symbols).*/
 class Parser {
    private:
     /* ASM to instruction dictionaries (Code module) */
@@ -22,6 +22,7 @@ class Parser {
     map<string, string> jumpDict;
     string prefixA = "0";
     string prefixC = "111";
+
     void compEntry(string key, string val);
     void destEntry(string key, string val);
     void jumpEntry(string key, string val);
