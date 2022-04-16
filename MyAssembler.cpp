@@ -76,7 +76,7 @@ int main(int argc, char const *argv[]) {
                 string::size_type idx_R = line.find_first_of(')');
                 line = line.substr(idx_L + 1, idx_R - 1);
                 MyST.addLabel(line);
-                continue;
+                continue;  // skip the push to the queue2
             } else {
                 MyST.incLabelCounter();  // move the label counter to the next line (ROM Address)
             }
